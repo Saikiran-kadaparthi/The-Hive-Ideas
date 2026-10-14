@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#171713"><title>Sign in — The Hive</title><link rel="stylesheet" href="login.css"></head>
+<body><main class="login-page"><section class="login-card">
+<a class="brand" href="login.html"><span class="brand-mark">⬡</span><span>The Hive</span></a>
+<div class="bee-art" aria-hidden="true"><span>✦</span><div class="honeycomb">⬡</div><span>✧</span></div>
+<p class="eyebrow">YOUR PERSONAL CREATIVE ARCHIVE</p><h1>Welcome back<span>.</span></h1><p class="intro">Your ideas are right where you left them.</p>
+<form id="loginForm"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="username" required placeholder="you@example.com">
+<label for="password">Password</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Your Supabase password"><button type="button" id="togglePassword" class="show-password">Show</button></div>
+<p class="error-message" id="loginError" role="alert" aria-live="polite"></p><button class="sign-in" id="signInButton" type="submit">Unlock The Hive <span>→</span></button></form>
+<div class="login-foot"><span class="lock">◇</span> A quiet place for your ideas.</div></section><p class="prototype-note">Private workspace · Supabase Auth</p></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="login.js"></script></body></html>

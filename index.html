@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171713">
+  <title>The Hive — Your Creative Universe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-view="Dashboard" aria-label="The Hive home">
+        <span class="brand-mark">⬡</span><span>The Hive</span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="navigation" aria-label="Main navigation">
+        <button class="nav-item active" data-view="Dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-view="Inbox"><span>▣</span> Inbox <span class="nav-count" id="inboxCount">0</span></button>
+        <button class="nav-item" data-view="Ideas"><span>✳</span> Ideas</button>
+        <button class="nav-item" data-view="Projects"><span>▤</span> Projects</button>
+        <button class="nav-item" data-view="Categories"><span>◇</span> Categories</button>
+        <button class="nav-item" data-view="Archive"><span>▱</span> Archive</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="honeycomb">✦</div>
+        <p class="side-quote">Good ideas deserve a home.</p>
+        <span class="local-note"><span class="status-dot"></span> Saved on this device</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb"><span class="crumb-muted">Workspace</span><span class="crumb-slash">/</span><strong id="pageTitle">Dashboard</strong></div>
+        <div class="top-actions">
+          <label class="search-box" for="globalSearch"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search your hive…" autocomplete="off"></label>
+          <button class="icon-button" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">☼</button>
+          <button class="button button-primary" id="topAdd"><span>＋</span> New idea</button>
+        </div>
+      </header>
+
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow"><span class="eyebrow-star">✦</span> YOUR PERSONAL CREATIVE ARCHIVE</p>
+          <h1 id="greeting">Your creative universe<span class="title-period">.</span></h1>
+          <p class="subtitle" id="pageSubtitle">Nothing lost. Nothing rushed.</p>
+        </div>
+        <div class="date-pill"><span>☼</span> A little progress counts</div>
+      </section>
+
+      <section class="stats-grid" aria-label="Overview">
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-icon">✳</span><span class="stat-label">Ideas saved</span><span class="stat-trend">↗</span></div>
+          <div class="stat-number" id="ideasStat">0</div><div class="stat-foot">Thoughts worth keeping</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-icon">▤</span><span class="stat-label">Active projects</span></div>
+          <div class="stat-number" id="projectsStat">0</div><div class="stat-foot">Things in motion</div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-icon">♡</span><span class="stat-label">Pinned favorites</span></div>
+          <div class="stat-number" id="favoritesStat">0</div><div class="stat-foot">The ones you love</div>
+        </article>
+      </section>
+
+      <section class="capture-panel">
+        <div class="capture-icon">✎</div>
+        <div class="capture-copy"><h2>Catch that thought.</h2><p>Don't let a good idea escape. You can organize it later.</p></div>
+        <form id="quickForm" class="quick-form">
+          <input id="quickTitle" maxlength="160" required placeholder="An idea just landed…" aria-label="Idea title">
+          <button class="button button-primary" type="submit">＋ Save idea</button>
+        </form>
+      </section>
+
+      <section class="content-grid">
+        <div class="ideas-section">
+          <div class="section-heading">
+            <div><p class="eyebrow">YOUR COLLECTION</p><h2 id="listHeading">Recently captured</h2></div>
+            <div class="list-controls">
+              <select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option></select>
+              <select id="sortSelect" aria-label="Sort ideas"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="az">A to Z</option><option value="priority">Priority</option></select>
+            </div>
+          </div>
+          <div class="idea-list" id="ideaList"></div>
+          <div class="empty-state hidden" id="emptyState"><div class="empty-bee">✿</div><h3>It's quiet in here.</h3><p>No ideas match this view yet. Add one now, or clear your search.</p><button class="button button-outline" id="emptyAdd">Capture an idea</button></div>
+        </div>
+        <aside class="right-rail">
+          <div class="rail-card category-card">
+            <div class="rail-heading"><div><p class="eyebrow">EXPLORE</p><h3>Your idea worlds</h3></div><span class="rail-flower">✿</span></div>
+            <div id="categoryList" class="category-list"></div>
+            <button class="text-button" data-view="Categories">Manage categories <span>→</span></button>
+          </div>
+          <div class="rail-card tiny-note">
+            <span class="note-spark">✦</span><h3>A reminder from the hive</h3>
+            <p>An idea is allowed to just be an idea. You don't owe every thought a deadline.</p>
+            <div class="note-bees">✳　·　✳　·　✳</div>
+          </div>
+        </aside>
+      </section>
+      <footer class="footer"><span>⬡ The Hive</span><span>Made for the ideas you haven't built yet.</span><span class="privacy-label">Private by design <span>•</span> Local prototype</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="ideaModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <form class="idea-modal" id="ideaForm">
+      <div class="modal-header"><div><p class="eyebrow">ADD TO YOUR ARCHIVE</p><h2 id="modalTitle">Capture an idea</h2></div><button type="button" class="icon-button close-modal" id="closeModal" aria-label="Close">×</button></div>
+      <label class="field-label" for="ideaTitle">Title <span>*</span></label>
+      <input class="field-input" id="ideaTitle" required maxlength="160" placeholder="Give this thought a name">
+      <label class="field-label" for="ideaDescription">A little more (optional)</label>
+      <textarea class="field-input" id="ideaDescription" rows="4" placeholder="What are you imagining? Add details while they're fresh…"></textarea>
+      <div class="field-row">
+        <div><label class="field-label" for="ideaCategory">Category</label><select class="field-input" id="ideaCategory"></select></div>
+        <div><label class="field-label" for="ideaStatus">Status</label><select class="field-input" id="ideaStatus"><option>Inbox</option><option>Someday</option><option>Learning</option><option>Planned</option><option>Active</option><option>Paused</option><option>Completed</option></select></div>
+      </div>
+      <div class="modal-actions"><span class="modal-hint">You can fill in the rest later.</span><button type="button" class="button button-outline" id="cancelModal">Cancel</button><button type="submit" class="button button-primary">Save to The Hive</button></div>
+    </form>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="access.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
